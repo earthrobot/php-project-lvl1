@@ -1,11 +1,16 @@
 {
     "name": "marina/hex1",
     "description": "Hexlet project 1",
+    "bin": [
+      "bin/brain-games"
+    ],
     "authors": [
         {
             "name": "earthrobot",
             "email": "syley-20@yandex.ru"
         }
     ],
-    "require": {}
+    "require": {
+	"php": "*"
+	}
 }
