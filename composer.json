@@ -1,0 +1,11 @@
+{
+    "name": "marina/hex1",
+    "description": "Hexlet project 1",
+    "authors": [
+        {
+            "name": "earthrobot",
+            "email": "syley-20@yandex.ru"
+        }
+    ],
+    "require": {}
+}
