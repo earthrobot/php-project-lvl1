@@ -1,6 +1,7 @@
 {
     "name": "marina/hex1",
     "description": "Hexlet project 1",
+    "license": "MIT",
     "bin": [
       "bin/brain-games"
     ],
@@ -10,7 +11,12 @@
             "email": "syley-20@yandex.ru"
         }
     ],
+    "autoload": {
+    	"files": [
+    		"src/Cli.php"
+    	]
+    },
     "require": {
-	"php": "*"
+        "wp-cli/php-cli-tools": "^0.11.11"
 	}
 }
