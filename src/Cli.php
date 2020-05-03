@@ -33,7 +33,7 @@ function game()
         } else {
             $result = $answer . " is wrong answer ;). Correct answer was " . $even;
             line($result);
-            break;
+            return;
         }
         line($result);
     }
