@@ -3,7 +3,8 @@
     "description": "Hexlet project 1",
     "license": "MIT",
     "bin": [
-      "bin/brain-games"
+      "bin/brain-games",
+      "bin/brain-even"
     ],
     "scripts": {
         "phpcs": "phpcs",
