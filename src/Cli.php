@@ -96,3 +96,34 @@ function gcd()
     }
     line("Congratulations, %s!\n", $name);
 }
+
+function progression()
+{
+    line('Welcome to the Brain Game!');
+    line('What number is missing in the progression?');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!\n", $name);
+    for ($i = 0; $i < 3; $i++) {
+        $start = rand(1, 5);
+        $step = rand(1, 10);
+        $prog = [$start];
+        for ($ii = 0; $ii < 9; $ii++, $start = $start + $step) {
+            $prog[] = $start + $step;
+        }
+        $prog_missed = $prog;
+        $ind = rand(0, 9);
+        $prog_missed[$ind] = '..';
+        $str_prog = implode(" ", $prog_missed);
+        line('Question: ' . $str_prog);
+        $answer = prompt('Your answer');
+        if ($answer == $prog[$ind]) {
+            $result = 'Correct!';
+        } else {
+            $result = $answer . " is wrong answer ;). Correct answer was " . $prog[$ind];
+            line($result);
+            return;
+        }
+        line($result);
+    }
+    line("Congratulations, %s!\n", $name);
+}
