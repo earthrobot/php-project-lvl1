@@ -127,3 +127,36 @@ function progression()
     }
     line("Congratulations, %s!\n", $name);
 }
+
+function prime()
+{
+    line('Welcome to the Brain Game!');
+    line('Answer "yes" if given number is prime. Otherwise answer "no".');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!\n", $name);
+    for ($i = 0; $i < 3; $i++) {
+        $max = 100;
+        $num = rand(1, $max);
+        $prime = 'yes';
+        if ($num > 0) {
+            for ($ii = 2; $ii < $max; $ii++) {
+                if ($ii != $num) {
+                    if (($num % $ii) == 0) {
+                        $prime = 'no';
+                    }
+                }
+            }
+        }
+        line('Question: ' . $num);
+        $answer = prompt('Your answer');
+        if ($answer == $prime) {
+            $result = 'Correct!';
+        } else {
+            $result = $answer . " is wrong answer ;). Correct answer was " . $prime;
+            line($result);
+            return;
+        }
+        line($result);
+    }
+    line("Congratulations, %s!\n", $name);
+}
