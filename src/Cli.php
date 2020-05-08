@@ -67,3 +67,32 @@ function calc()
     }
     line("Congratulations, %s!\n", $name);
 }
+
+function findgcd($a, $b)
+{
+    return ($a % $b) ? findgcd($b, $a % $b) : $b;
+}
+
+function gcd()
+{
+    line('Welcome to the Brain Game!');
+    line('Find the greatest common divisor of given numbers.');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!\n", $name);
+    for ($i = 0; $i < 3; $i++) {
+        $num1 = rand(1, 100);
+        $num2 = rand(1, 100);
+        $gcd = findgcd($num1, $num2);
+        line('Question: ' . $num1 . ' ' . $num2);
+        $answer = prompt('Your answer');
+        if ($answer == $gcd) {
+            $result = 'Correct!';
+        } else {
+            $result = $answer . " is wrong answer ;). Correct answer was " . $gcd;
+            line($result);
+            return;
+        }
+        line($result);
+    }
+    line("Congratulations, %s!\n", $name);
+}
