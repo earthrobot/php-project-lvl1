@@ -8,6 +8,6 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function BrainGames\Cli\progression;
+use function BrainGames\Cli\game;
 
-progression();
+game('Answer "yes" if the number is even, otherwise answer "no".', 'BrainGames\Games\progression');
