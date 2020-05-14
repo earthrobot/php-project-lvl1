@@ -1,9 +1,8 @@
 {
     "name": "marina/hex1",
-    "description": "Hexlet project 1",
+    "description": "Hexlet project 1: Brain Games",
     "license": "MIT",
     "bin": [
-      "bin/brain-games",
       "bin/brain-even",
       "bin/brain-calc",
       "bin/brain-gcd",
@@ -22,7 +21,8 @@
     ],
     "autoload": {
     	"files": [
-    		"src/Cli.php"
+            "src/Cli.php",
+            "games/Games.php"
     	]
     },
     "require": {
