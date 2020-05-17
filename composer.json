@@ -21,8 +21,12 @@
     ],
     "autoload": {
     	"files": [
-            "src/Cli.php",
-            "games/Games.php"
+            "src/Engine.php",
+            "src/games/Even.php",
+            "src/games/Calc.php",
+            "src/games/Gcd.php",
+            "src/games/Prime.php",
+            "src/games/Progression.php"
     	]
     },
     "require": {
