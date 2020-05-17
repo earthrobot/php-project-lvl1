@@ -2,28 +2,36 @@
 
 namespace BrainGames\Games;
 
-use function cli\line;
-use function cli\prompt;
-use function BrainGames\Engine\game;
+use function BrainGames\Engine\runGame;
 
-function progression()
+function makeRandProgression($start, $step, $stepsNumber)
 {
-    $line = 'What number is missing in the progression?';
+    $prog = [$start];
+    for ($i = 0; $i < $stepsNumber; $i++, $start = $start + $step) {
+        $prog[] = $start + $step;
+    }
+    return $prog;
+}
+
+function progressionGame()
+{
     $questions = [];
-    $correct_answers = [];
-    for ($i = 0; $i < 3; $i++) {
+    $correctAnswers = [];
+    $roundNumber = 3;
+    for ($i = 0; $i < $roundNumber; $i++) {
         $start = rand(1, 5);
         $step = rand(1, 10);
-        $prog = [$start];
-        for ($ii = 0; $ii < 9; $ii++, $start = $start + $step) {
-            $prog[] = $start + $step;
-        }
+        $stepsNumber = 9;
+        $prog = makeRandProgression($start, $step, $stepsNumber);
         $prog_missed = $prog;
-        $ind = rand(0, 9);
-        $prog_missed[$ind] = '..';
+        $randIndex = rand(0, $stepsNumber);
+        $prog_missed[$randIndex] = '..';
         $str_prog = implode(" ", $prog_missed);
-        $correct_answers[$i] = $prog[$ind];
+        $correctAnswers[$i] = $prog[$randIndex];
         $questions[] = $str_prog;
     }
-    game($line, $questions, $correct_answers);
+    $arrGameData = [];
+    $arrGameData['questions'] = $questions;
+    $arrGameData['correctAnswers'] = $correctAnswers;
+    runGame($arrGameData);
 }

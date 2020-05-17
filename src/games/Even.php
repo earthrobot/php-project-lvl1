@@ -2,23 +2,30 @@
 
 namespace BrainGames\Even;
 
-use function cli\line;
-use function cli\prompt;
-use function BrainGames\Engine\game;
+use function BrainGames\Engine\runGame;
 
-function even()
+function isEven($num)
 {
-    $line = 'Answer "yes" if the number is even, otherwise answer "no".';
+    if ($num % 2 == 0) {
+        $even = 'yes';
+    } else {
+        $even = 'no';
+    }
+    return $even;
+}
+
+function evenGame()
+{
     $questions = [];
-    $correct_answers = [];
-    for ($i = 0; $i < 3; $i++) {
+    $correctAnswers = [];
+    $roundNumber = 3;
+    for ($i = 0; $i < $roundNumber; $i++) {
         $num = rand(1, 20);
         $questions[$i] = $num;
-        if ($num % 2 == 0) {
-            $correct_answers[$i] = 'yes';
-        } else {
-            $correct_answers[$i] = 'no';
-        }
+        $correctAnswers[$i] = isEven($num);
     }
-    game($line, $questions, $correct_answers);
+    $arrGameData = [];
+    $arrGameData['questions'] = $questions;
+    $arrGameData['correctAnswers'] = $correctAnswers;
+    runGame($arrGameData);
 }
