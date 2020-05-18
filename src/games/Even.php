@@ -1,31 +1,34 @@
 <?php
 
-namespace BrainGames\Even;
+namespace BrainGames\games\Even;
 
 use function BrainGames\Engine\runGame;
+
+use const BrainGames\Engine\ROUND_COUNT;
+
+const GAME_TASK = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function isEven($num)
 {
     if ($num % 2 == 0) {
-        $even = 'yes';
+        $even = true;
     } else {
-        $even = 'no';
+        $even = false;
     }
     return $even;
 }
 
 function evenGame()
 {
-    $questions = [];
-    $correctAnswers = [];
-    $roundNumber = 3;
-    for ($i = 0; $i < $roundNumber; $i++) {
+    $GameData = [];
+    for ($i = 0; $i < ROUND_COUNT; $i++) {
         $num = rand(1, 20);
-        $questions[$i] = $num;
-        $correctAnswers[$i] = isEven($num);
+        $GameData[$i][] = $num;
+        if (isEven($num)) {
+            $GameData[$i][] = 'yes';
+        } else {
+            $GameData[$i][] = 'no';
+        }
     }
-    $arrGameData = [];
-    $arrGameData['questions'] = $questions;
-    $arrGameData['correctAnswers'] = $correctAnswers;
-    runGame($arrGameData);
+    runGame($GameData, GAME_TASK);
 }

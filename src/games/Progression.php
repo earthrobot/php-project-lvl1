@@ -1,8 +1,12 @@
 <?php
 
-namespace BrainGames\Games;
+namespace BrainGames\games\Progression;
 
 use function BrainGames\Engine\runGame;
+
+use const BrainGames\Engine\ROUND_COUNT;
+
+const GAME_TASK = 'What number is missing in the progression?';
 
 function makeRandProgression($start, $step, $stepsNumber)
 {
@@ -15,10 +19,8 @@ function makeRandProgression($start, $step, $stepsNumber)
 
 function progressionGame()
 {
-    $questions = [];
-    $correctAnswers = [];
-    $roundNumber = 3;
-    for ($i = 0; $i < $roundNumber; $i++) {
+    $GameData = [];
+    for ($i = 0; $i < ROUND_COUNT; $i++) {
         $start = rand(1, 5);
         $step = rand(1, 10);
         $stepsNumber = 9;
@@ -27,11 +29,8 @@ function progressionGame()
         $randIndex = rand(0, $stepsNumber);
         $prog_missed[$randIndex] = '..';
         $str_prog = implode(" ", $prog_missed);
-        $correctAnswers[$i] = $prog[$randIndex];
-        $questions[] = $str_prog;
+        $GameData[$i][] = $str_prog;
+        $GameData[$i][] = $prog[$randIndex];
     }
-    $arrGameData = [];
-    $arrGameData['questions'] = $questions;
-    $arrGameData['correctAnswers'] = $correctAnswers;
-    runGame($arrGameData);
+    runGame($GameData, GAME_TASK);
 }

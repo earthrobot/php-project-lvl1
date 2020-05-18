@@ -1,34 +1,37 @@
 <?php
 
-namespace BrainGames\Games;
+namespace BrainGames\games\Calc;
 
 use function BrainGames\Engine\runGame;
 
-function makeRandCalculation($num1, $num2)
+use const BrainGames\Engine\ROUND_COUNT;
+
+const GAME_TASK = 'What is the result of the expression?';
+
+function makeRandCalculation($num1, $num2, $operator)
 {
-    $res1 = array('+', $num1 + $num2);
-    $res2 = array('-', $num1 - $num2);
-    $res3 = array('*', $num1 * $num2);
-    $operArr = array($res1, $res2, $res3);
-    $randIndex = rand(0, 2);
-    $oper = $operArr[$randIndex];
-    return $oper;
+    if ($operator == '+') {
+        $result = $num1 + $num2;
+    } elseif ($operator == '-') {
+        $result = $num1 - $num2;
+    } elseif ($operator == '*') {
+        $result = $num1 * $num2;
+    }
+    return $result;
 }
 
 function calcGame()
 {
-    $questions = [];
-    $correctAnswers = [];
-    $roundNumber = 3;
-    for ($i = 0; $i < $roundNumber; $i++) {
+    $GameData = [];
+    for ($i = 0; $i < ROUND_COUNT; $i++) {
         $num1 = rand(1, 30);
         $num2 = rand(1, 30);
-        $oper = makeRandCalculation($num1, $num2);
-        $correctAnswers[$i] = $oper[1];
-        $questions[$i] = $num1 . ' ' . $oper[0] . ' ' . $num2;
+        $arrOper = ['+', '-', '*'];
+        $randIndex = rand(0, 2);
+        $operator = $arrOper[$randIndex];
+        $GameData[$i][] = "$num1 $operator $num2";
+        $result = makeRandCalculation($num1, $num2, $operator);
+        $GameData[$i][] = $result;
     }
-    $arrGameData = [];
-    $arrGameData['questions'] = $questions;
-    $arrGameData['correctAnswers'] = $correctAnswers;
-    runGame($arrGameData);
+    runGame($GameData, GAME_TASK);
 }

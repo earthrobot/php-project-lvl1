@@ -10,7 +10,6 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function BrainGames\Games\progressionGame;
+use function BrainGames\games\Progression\progressionGame;
 
-const GAME_NAME = 'What number is missing in the progression?';
 progressionGame();
