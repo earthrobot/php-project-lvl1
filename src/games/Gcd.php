@@ -13,14 +13,14 @@ function findgcd($a, $b)
     return ($a % $b) ? findgcd($b, $a % $b) : $b;
 }
 
-function gcdGame()
+function runGcdGame()
 {
-    $GameData = [];
-    for ($i = 0; $i < ROUND_COUNT; $i++) {
+    $gameData = [];
+    for ($i = 0; $i < ROUND_COUNT; $i += 1) {
         $num1 = rand(1, 100);
         $num2 = rand(1, 100);
-        $GameData[$i][] = "$num1 $num2";
-        $GameData[$i][] = findgcd($num1, $num2);
+        $gameData[$i][] = "$num1 $num2";
+        $gameData[$i][] = findgcd($num1, $num2);
     }
-    runGame($GameData, GAME_TASK);
+    runGame($gameData, GAME_TASK);
 }

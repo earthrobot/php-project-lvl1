@@ -8,30 +8,28 @@ use const BrainGames\Engine\ROUND_COUNT;
 
 const GAME_TASK = 'What is the result of the expression?';
 
-function makeRandCalculation($num1, $num2, $operator)
+function calculate($num1, $num2, $operator)
 {
-    if ($operator == '+') {
-        $result = $num1 + $num2;
-    } elseif ($operator == '-') {
-        $result = $num1 - $num2;
-    } elseif ($operator == '*') {
-        $result = $num1 * $num2;
+    switch ($operator) {
+        case '+':
+            return $num1 + $num2;
+        case '-':
+            return $num1 - $num2;
+        case '*':
+            return $num1 * $num2;
     }
-    return $result;
 }
 
-function calcGame()
+function runCalcGame()
 {
-    $GameData = [];
-    for ($i = 0; $i < ROUND_COUNT; $i++) {
+    $gameData = [];
+    $operations = ['+', '-', '*'];
+    for ($i = 0; $i < ROUND_COUNT; $i += 1) {
         $num1 = rand(1, 30);
         $num2 = rand(1, 30);
-        $arrOper = ['+', '-', '*'];
-        $randIndex = rand(0, 2);
-        $operator = $arrOper[$randIndex];
-        $GameData[$i][] = "$num1 $operator $num2";
-        $result = makeRandCalculation($num1, $num2, $operator);
-        $GameData[$i][] = $result;
+        $operator = $operations[array_rand($operations)];
+        $result = calculate($num1, $num2, $operator);
+        $gameData[$i] = ["$num1 $operator $num2", $result];
     }
-    runGame($GameData, GAME_TASK);
+    runGame($gameData, GAME_TASK);
 }

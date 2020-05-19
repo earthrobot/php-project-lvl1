@@ -17,10 +17,10 @@ function makeRandProgression($start, $step, $stepsNumber)
     return $prog;
 }
 
-function progressionGame()
+function runProgressionGame()
 {
-    $GameData = [];
-    for ($i = 0; $i < ROUND_COUNT; $i++) {
+    $gameData = [];
+    for ($i = 0; $i < ROUND_COUNT; $i += 1) {
         $start = rand(1, 5);
         $step = rand(1, 10);
         $stepsNumber = 9;
@@ -29,8 +29,8 @@ function progressionGame()
         $randIndex = rand(0, $stepsNumber);
         $prog_missed[$randIndex] = '..';
         $str_prog = implode(" ", $prog_missed);
-        $GameData[$i][] = $str_prog;
-        $GameData[$i][] = $prog[$randIndex];
+        $gameData[$i][] = $str_prog;
+        $gameData[$i][] = $prog[$randIndex];
     }
-    runGame($GameData, GAME_TASK);
+    runGame($gameData, GAME_TASK);
 }

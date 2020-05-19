@@ -24,18 +24,18 @@ function isPrime($num)
     return $prime;
 }
 
-function primeGame()
+function runPrimeGame()
 {
-    $GameData = [];
-    for ($i = 0; $i < ROUND_COUNT; $i++) {
+    $gameData = [];
+    for ($i = 0; $i < ROUND_COUNT; $i += 1) {
         $max = 100;
         $num = rand(1, $max);
-        $GameData[$i][] = $num;
+        $gameData[$i][] = $num;
         if (isPrime($num)) {
-            $GameData[$i][] = 'yes';
+            $gameData[$i][] = 'yes';
         } else {
-            $GameData[$i][] = 'no';
+            $gameData[$i][] = 'no';
         }
     }
-    runGame($GameData, GAME_TASK);
+    runGame($gameData, GAME_TASK);
 }
