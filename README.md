@@ -10,8 +10,9 @@
 [![asciicast](https://asciinema.org/a/XsPj5EJqZR27QvxdbS3J7iVsl.svg)](https://asciinema.org/a/XsPj5EJqZR27QvxdbS3J7iVsl)
 
 ## Setup
-
-composer global require marina/hex1:dev-master
+```sh
+$ composer global require marina/hex1:dev-master
+```
 
 ## Games
 
@@ -20,3 +21,12 @@ composer global require marina/hex1:dev-master
 -   brain-gcd
 -   brain-prime
 -   brain-progression
+
+## Example
+```sh
+$ brain-even
+
+Welcome to the Brain Game!
+Answer "yes" if the number is even, otherwise answer "no".
+May I have your name?: 
+```

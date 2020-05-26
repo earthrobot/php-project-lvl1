@@ -8,9 +8,9 @@ use const BrainGames\Engine\ROUNDS_COUNT;
 
 const GAME_TASK = 'Find the greatest common divisor of given numbers.';
 
-function findgcd($a, $b)
+function findGcd($a, $b)
 {
-    return ($a % $b) ? findgcd($b, $a % $b) : $b;
+    return ($a % $b) ? findGcd($b, $a % $b) : $b;
 }
 
 function runGcdGame()
@@ -20,7 +20,7 @@ function runGcdGame()
         $num1 = rand(1, 100);
         $num2 = rand(1, 100);
         $question = "$num1 $num2";
-        $correctAnswer = (string) findgcd($num1, $num2);
+        $correctAnswer = (string) findGcd($num1, $num2);
         $gameData[] = [$question, $correctAnswer];
     }
     runGame($gameData, GAME_TASK);
