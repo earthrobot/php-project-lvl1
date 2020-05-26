@@ -21,7 +21,7 @@ function runGcdGame()
         $num2 = rand(1, 100);
         $question = "$num1 $num2";
         $correctAnswer = (string) findgcd($num1, $num2);
-        $gameData[$i] = [$question, $correctAnswer];
+        $gameData[] = [$question, $correctAnswer];
     }
     runGame($gameData, GAME_TASK);
 }

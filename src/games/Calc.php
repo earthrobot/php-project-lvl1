@@ -13,12 +13,11 @@ function calculate($num1, $num2, $operator)
     switch ($operator) {
         case '+':
             return $num1 + $num2;
-            break;
         case '-':
             return $num1 - $num2;
-            break;
         case '*':
             return $num1 * $num2;
+        default:
             break;
     }
 }
@@ -33,7 +32,7 @@ function runCalcGame()
         $operator = $operations[array_rand($operations)];
         $question = "$num1 $operator $num2";
         $correctAnswer = (string) calculate($num1, $num2, $operator);
-        $gameData[$i] = [$question, $correctAnswer];
+        $gameData[] = [$question, $correctAnswer];
     }
     runGame($gameData, GAME_TASK);
 }

@@ -23,5 +23,5 @@ function runGame($gameData, $gameTask)
             return;
         }
     }
-    line("Congratulations, %s!\n", $name);
+    line("Congratulations, %s!", $name);
 }

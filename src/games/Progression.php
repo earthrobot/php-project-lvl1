@@ -27,9 +27,8 @@ function runProgressionGame()
         $progression = makeProgression($start, $step, $progressionLength);
         $missedNumIndex = rand(0, $progressionLength - 1);
         $replacement = array($missedNumIndex => '..');
-        $progressionMissed = array_replace($progression, $replacement);
-        $strProg = implode(" ", $progressionMissed);
-        $question = $strProg;
+        $progressionTask = array_replace($progression, [$missedNumIndex => '..']);
+        $question = implode(" ", $progressionTask);
         $correctAnswer = (string) $progression[$missedNumIndex];
         $gameData[$i] = [$question, $correctAnswer];
     }
