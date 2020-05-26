@@ -11,7 +11,7 @@
 
 ## Setup
 
-composer global require marina/hex1:fev-master
+composer global require marina/hex1:dev-master
 
 ## Games
 
