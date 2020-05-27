@@ -3,11 +3,11 @@
     "description": "Hexlet project 1: Brain Games",
     "license": "MIT",
     "bin": [
-      "bin/brain-even",
-      "bin/brain-calc",
-      "bin/brain-gcd",
-      "bin/brain-progression",
-      "bin/brain-prime"
+        "bin/brain-even",
+        "bin/brain-calc",
+        "bin/brain-gcd",
+        "bin/brain-progression",
+        "bin/brain-prime"
     ],
     "scripts": {
         "phpcs": "phpcs",

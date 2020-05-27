@@ -1,6 +1,6 @@
 # php-project-lvl1
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9fc1d18433183bcbbde6/maintainability)](https://codeclimate.com/github/earthrobot/php-project-lvl1/maintainability)
 [![Github Actions Status](https://github.com/earthrobot/php-project-lvl1/workflows/hex1-workflow/badge.svg)](https://github.com/earthrobot/php-project-lvl1/actions)
 
 [![asciicast](https://asciinema.org/a/OlCxKdIyrCJxTYbT9XYbhJKVh.svg)](https://asciinema.org/a/OlCxKdIyrCJxTYbT9XYbhJKVh)
